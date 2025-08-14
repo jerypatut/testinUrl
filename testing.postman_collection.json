@@ -1,0 +1,316 @@
+{
+	"info": {
+		"_postman_id": "5327bb42-8310-4b60-ac66-b6217c330b11",
+		"name": "testing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39317174",
+		"_collection_link": "https://jeri11.postman.co/workspace/jeri-Workspace~e9ce93ba-22bf-4a48-be6b-5e6c5adb3131/collection/39317174-5327bb42-8310-4b60-ac66-b6217c330b11?action=share&source=collection_link&creator=39317174"
+	},
+	"item": [
+		{
+			"name": "Folder 1 – Shorten URL (POST /shorten)",
+			"item": [
+				{
+					"name": "Create Short URL",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"url\": \"https://www.google.com\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/shorten",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"shorten"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Short URL – Empty Bodjsony",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/shorten",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"shorten"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Short URL – Invalid Format",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"url\": \"httdps://www.google.com\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/shorten",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"shorten"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Short URL – Idempote/samerequesturlnt",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"url\": \"https://www.google.com\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/shorten",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"shorten"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Folder 2 – Redirect (GET /:shortToken)",
+			"item": [
+				{
+					"name": "Redirect to Original URL",
+					"protocolProfileBehavior": {
+						"disableUrlEncoding": true,
+						"followRedirects": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/csV44o",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"csV44o"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Redirect – Negative – Token Not Found",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/w1kKgU",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"w1kKgU"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Folder 3 – Statistik (Stats)",
+			"item": [
+				{
+					"name": "Stats – Positive",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/stats/oPX1xy",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"stats",
+								"oPX1xy"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Stats – Negative – Token Not Found",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Folder 4 – Dapatkan Token melalui URL (Get Token by URL)",
+			"item": [
+				{
+					"name": "Get Token – Positive",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/get-token?url=https://www.google.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"get-token"
+							],
+							"query": [
+								{
+									"key": "url",
+									"value": "https://www.google.com"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Token – Negative – URL Not Fou",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/get-token?url=https://www.google.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"get-token"
+							],
+							"query": [
+								{
+									"key": "url",
+									"value": "https://www.google.com"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Request Name\tMethod\tEndpoint\tScenario Get Token – Positive\tGET\t/get-token?url=<originalUrl>\tURL ada di DB, expect 200 OK + shortToken Get Token – Negative – URL Not Found\tGET\t/get-token?url=<url_tidak_ada>\tURL tidak ada, expect 404 Not Found Get Token – N",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/get-token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"get-token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Folder 5 – Penanganan Kesalahan (Error Handling)",
+			"item": [
+				{
+					"name": "Wrong Method – 405",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/shorten",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"shorten"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "invalid_path",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/get",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"get"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

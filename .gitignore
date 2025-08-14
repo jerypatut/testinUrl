@@ -1,0 +1,42 @@
+# =========================
+# Node & Dependencies
+# =========================
+node_modules/
+npm-debug.log*
+
+# =========================
+# Environment Variables
+# =========================
+.env
+.env.*      # Kalau punya env untuk staging/production
+
+# =========================
+# Build Output
+# =========================
+dist/
+build/
+
+# =========================
+# Prisma Generated Files
+# =========================
+/src/generated/
+/prisma/generated/
+/src/generated/prisma/
+
+# =========================
+# Logs
+# =========================
+logs/
+*.log
+
+# =========================
+# OS Specific
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# IDE / Editor
+# =========================
+.vscode/
+.idea/
