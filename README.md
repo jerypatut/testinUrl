@@ -20,7 +20,7 @@ This URL Shortener is built with **Node.js (Express.js)** + **TypeScript** + **P
 
 ## 🚀 Tech Stack
 
-* **Node.js v20 (slim image)**
+* **Node.js v22.14 (slim image)**
 * **Express.js v5**
 * **TypeScript**
 * **PostgreSQL 16**
@@ -272,4 +272,4 @@ Ensure `.env` contains your production `DATABASE_URL`.
 
 ## 👨‍💻 Author
 
-Developed by **\[Your Name]** 🚀
+Developed by **jeripatut-Yeremias Pontianus sugandri-Fulstackdevelop** 🚀
