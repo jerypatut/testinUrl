@@ -1,6 +1,7 @@
+import 'module-alias/register';
 import express from 'express';
-import urlRoutes from './routes/url.routes';
-import { notFoundHandler } from './middlewares/notFound';
+import urlRoutes from '@routes/url.routes';
+import { notFoundHandler } from '@middlewares/notFound';
 const app = express();
 
 

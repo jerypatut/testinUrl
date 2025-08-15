@@ -2,11 +2,12 @@
   "name": "testganpatihakasasolutions",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {
-    "dev": "nodemon --watch 'src/**/*.ts' --exec \"ts-node -r tsconfig-paths/register\" src/server.ts",
-    "build": "tsc",
-    "start": "node dist/server.js"
-  },
+"scripts": {
+  "dev": "cross-env NODE_ENV=development nodemon --watch 'src/**/*.ts' --exec \"ts-node -r tsconfig-paths/register\" src/server.ts",
+  "test:run": "cross-env NODE_ENV=testing ts-node -r tsconfig-paths/register src/server.ts",
+  "build": "tsc",
+  "start": "cross-env NODE_ENV=production node dist/server.js"
+},
   "keywords": [],
   "author": "yeremias pontianus sugandri",
   "license": "ISC",
@@ -23,7 +24,9 @@
   "devDependencies": {
     "@types/express": "^5.0.3",
     "@types/joi": "^17.2.2",
+    "@types/module-alias": "^2.0.4",
     "@types/node": "^24.2.1",
+    "cross-env": "^10.0.0",
     "dotenv-cli": "^10.0.0",
     "module-alias": "^2.2.3",
     "nodemon": "^3.1.10",
@@ -32,5 +35,14 @@
     "ts-node-dev": "^2.0.0",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.9.2"
+  },
+  "_moduleAliases": {
+    "@config": "src/config",
+    "@middlewares": "src/middlewares",
+    "@controllers": "src/controllers",
+    "@routes": "src/routes",
+    "@services": "src/services",
+    "@dto": "src/dto",
+    "@utils": "src/utils"
   }
 }

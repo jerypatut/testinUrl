@@ -1,6 +1,6 @@
 // url.routes.ts
 import { Router } from 'express';
-import { UrlController } from '@controllers/url.controller';
+import { UrlController } from '@controllers/url.controllers';
 import { methodNotAllowed } from '@middlewares/methodNotAllowed';
 
 const router = Router();
