@@ -245,7 +245,7 @@ npx prisma migrate dev --name init
 * Port: `5432`
 * Database: `ganapatihakasa_dev`
 * Username: `postgres`
-* Password: `ganapatihakasa`
+* Password: `development`
 
 ---
 
