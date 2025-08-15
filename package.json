@@ -5,6 +5,7 @@
 "scripts": {
   "dev": "cross-env NODE_ENV=development nodemon --watch 'src/**/*.ts' --exec \"ts-node -r tsconfig-paths/register\" src/server.ts",
   "test:run": "cross-env NODE_ENV=testing ts-node -r tsconfig-paths/register src/server.ts",
+    "test": "npm run test:run",
   "build": "tsc",
   "start": "cross-env NODE_ENV=production node dist/server.js"
 },
