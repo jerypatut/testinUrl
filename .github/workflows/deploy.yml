@@ -1,13 +1,13 @@
-name: CI - Build, Migrate & Test
+name: CI - Build and Test
 
 on:
   push:
-    branches: ["main", "develop"]
+    branches: [ "main", "develop" ]
   pull_request:
-    branches: ["main", "develop"]
+    branches: [ "main", "develop" ]
 
 jobs:
-  build-test:
+  build-and-test:
     runs-on: ubuntu-latest
 
     services:
@@ -26,7 +26,7 @@ jobs:
           --health-retries=5
 
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Set up Node.js
@@ -37,28 +37,15 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build TypeScript
-        run: npm run build
-
-      - name: Generate Prisma Client
+      - name: Generate Prisma client
         run: npx prisma generate
 
-      - name: Wait for Postgres to be ready
-        run: |
-          for i in {1..15}; do
-            pg_isready -h localhost -p 5432 -U postgres && break
-            echo "Waiting for Postgres..."
-            sleep 2
-          done
+      # Ganti .env.test jadi .env supaya Prisma otomatis baca
+      - name: Load test environment variables
+        run: cp .env.test .env
 
-      - name: Run Prisma migrations
-        env:
-          DATABASE_URL: postgresql://postgres:testing@localhost:5432/ganapatihakasa_test
-          NODE_ENV: testing
+      - name: Run migrations
         run: npx prisma migrate deploy
 
-      - name: Run Tests
-        env:
-          DATABASE_URL: postgresql://postgres:testing@localhost:5432/ganapatihakasa_test
-          NODE_ENV: testing
-        run: npm run test:run
+      - name: Run tests
+        run: npm test
