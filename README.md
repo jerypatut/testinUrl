@@ -197,6 +197,11 @@ Redirects to the original URL.
 ```bash
 npm run dev
 ```
+**Run testing server:**
+
+```bash
+npm run test:run
+```
 
 **Build TypeScript to JavaScript:**
 
